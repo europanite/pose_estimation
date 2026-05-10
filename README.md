@@ -34,3 +34,17 @@ curl http://localhost:8000/api/v1/health
 2. Select an image.
 3. Check the 2D keypoints overlaid on the image.
 4. Check the pose direction in the lower "3D skeleton check" view.
+
+## Tests
+
+Run the backend tests:
+
+```bash
+docker compose -f docker-compose.test.yml run --rm backend_test
+```
+
+Run the frontend smoke test:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm frontend_test
+```

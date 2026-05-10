@@ -1,0 +1,33 @@
+services:
+  backend_test:
+    image: local/backend-test:ci
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    environment:
+      POSE_BACKEND: mediapipe
+    command: >
+      /bin/sh -lc "
+        python -m pip install -r requirements.test.txt &&
+        mkdir -p reports/ci &&
+        python -m coverage run -m pytest -q &&
+        python -m coverage xml -o reports/ci/coverage.xml
+      "
+
+  frontend_test:
+    image: local/frontend-test:ci
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    working_dir: /app
+    environment:
+      CI: "1"
+      EXPO_NO_TELEMETRY: "1"
+    command: >
+      /bin/sh -lc "
+        node --version &&
+        npm --version
+      "
