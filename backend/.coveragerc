@@ -3,15 +3,16 @@ branch = True
 source = /app
 omit =
     /app/tests/*
-    /app/config-*.py
+    /app/config*.py
     */site-packages/*
 
 [report]
 show_missing = True
 skip_empty = True
+ignore_errors = True
 omit =
     /app/tests/*
-    /app/config-*.py
+    /app/config*.py
     */site-packages/*
 
 [xml]
