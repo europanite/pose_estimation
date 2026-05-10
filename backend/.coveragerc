@@ -1,0 +1,18 @@
+[run]
+branch = True
+source = /app
+omit =
+    /app/tests/*
+    /app/config-*.py
+    */site-packages/*
+
+[report]
+show_missing = True
+skip_empty = True
+omit =
+    /app/tests/*
+    /app/config-*.py
+    */site-packages/*
+
+[xml]
+output = reports/ci/coverage.xml

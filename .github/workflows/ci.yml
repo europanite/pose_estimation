@@ -61,8 +61,9 @@ jobs:
           docker compose -f docker-compose.test.yml run --rm --entrypoint /bin/sh backend_test -lc '
               python -m pip install -r requirements.test.txt
               mkdir -p reports/ci
-              python -m coverage run -m pytest -q
-              python -m coverage xml -o reports/ci/coverage.xml
+              python -m coverage erase
+              python -m coverage run --rcfile=.coveragerc -m pytest -q
+              python -m coverage xml --rcfile=.coveragerc -o reports/ci/coverage.xml
             '
       - name: Upload coverage xml
         uses: actions/upload-artifact@v4
