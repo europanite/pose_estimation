@@ -1,12 +1,43 @@
 /// <reference types="@react-three/fiber" />
 import React from 'react';
 import { Platform, Text, View } from 'react-native';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import type { PosePerson } from './types';
 
 function pointToVec(p: { x: number; y: number; z: number }) {
   return new THREE.Vector3((p.x - 0.5) * 4, -(p.y - 0.5) * 4, -p.z * 2);
+}
+
+function MouseOrbitControls() {
+  const { camera, gl } = useThree();
+
+  const controls = React.useMemo(() => {
+    const c = new OrbitControls(camera, gl.domElement);
+    c.enableDamping = true;
+    c.dampingFactor = 0.08;
+    c.enablePan = false;
+    c.enableZoom = true;
+    c.enableRotate = true;
+    c.minDistance = 2;
+    c.maxDistance = 10;
+    c.target.set(0, 0, 0);
+    c.update();
+    return c;
+  }, [camera, gl]);
+
+  useFrame(() => {
+    controls.update();
+  });
+
+  React.useEffect(() => {
+    return () => {
+      controls.dispose();
+    };
+  }, [controls]);
+
+  return null;
 }
 
 function BoneLine({ from, to }: { from: THREE.Vector3; to: THREE.Vector3 }) {
@@ -35,6 +66,7 @@ function Skeleton({ person, bones }: { person: PosePerson; bones: [string, strin
         if (!pa || !pb || pa.score < 0.2 || pb.score < 0.2) return null;
         return <BoneLine key={`${a}-${b}`} from={pointToVec(pa)} to={pointToVec(pb)} />;
       })}
+
       {Object.entries(person.keypoints).map(([name, p]) => {
         if (!p || p.score < 0.2) return null;
         const v = pointToVec(p);
@@ -60,6 +92,7 @@ export default function PoseScene({ person, bones }: { person: PosePerson | null
         <ambientLight intensity={0.8} />
         <directionalLight position={[3, 5, 4]} intensity={1} />
         <gridHelper args={[6, 12]} />
+        <MouseOrbitControls />
         {person ? <Skeleton person={person} bones={bones} /> : null}
       </Canvas>
     </View>
