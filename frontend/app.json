@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Pose 3D Check",
+    "name": "Pose Estimation",
     "slug": "pose-3d-check",
     "version": "0.1.0",
     "orientation": "portrait",
