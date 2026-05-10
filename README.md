@@ -8,14 +8,9 @@
 [![CI](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml)
 
-This is a Docker Compose project for loading an image, estimating the human pose, and checking the result with a 2D overlay and a simple 3D skeleton view.
+pose estimation.
 
 !["web_ui"](./assets/images/web_ui.png)
-
-## Summary
-
-- Running OpenPose itself only inside a TypeScript + Expo frontend is not realistic.
-- This project uses `POSE_BACKEND=mediapipe` so the basic flow can run reliably first.
 
 ## Start the project
 
