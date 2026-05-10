@@ -7,14 +7,8 @@ services:
       - .env
     environment:
       POSE_BACKEND: ${POSE_BACKEND:-mediapipe}
-      OPENPOSE_BIN: ${OPENPOSE_BIN:-/opt/openpose/build/examples/openpose/openpose.bin}
-      OPENPOSE_MODEL_FOLDER: ${OPENPOSE_MODEL_FOLDER:-/opt/openpose/models}
-      OPENPOSE_MODEL_POSE: ${OPENPOSE_MODEL_POSE:-BODY_25}
     ports:
       - "8000:8000"
-    volumes:
-      - ./models/openpose:/opt/openpose/models:ro
-
   frontend:
     build:
       context: ./frontend
