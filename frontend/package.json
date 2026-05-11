@@ -8,14 +8,17 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
+    "@pixiv/three-vrm": "^3.5.2",
     "@react-three/fiber": "^8.17.10",
     "expo": "~51.0.39",
     "expo-image-picker": "~15.0.7",
+    "kalidokit": "^1.1.5",
+    "mmd-parser": "^1.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
-    "react-native-web": "~0.19.10",
     "react-native-svg": "15.2.0",
+    "react-native-web": "~0.19.10",
     "three": "^0.164.1"
   },
   "devDependencies": {

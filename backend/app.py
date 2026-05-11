@@ -60,6 +60,25 @@ BONES = [
 ]
 
 
+
+
+def _landmarks_to_json(landmarks: Any) -> list[dict[str, float]]:
+    converted = []
+    for point in landmarks:
+        visibility = float(getattr(point, "visibility", 1.0))
+        item = {
+            "x": float(point.x),
+            "y": float(point.y),
+            "z": float(point.z),
+            "visibility": visibility,
+            "score": visibility,
+        }
+        presence = getattr(point, "presence", None)
+        if presence is not None:
+            item["presence"] = float(presence)
+        converted.append(item)
+    return converted
+
 def _read_image(upload: UploadFile) -> tuple[np.ndarray, int, int]:
     data = upload.file.read()
     if not data:
@@ -116,7 +135,12 @@ def _mediapipe_pose(upload: UploadFile) -> dict[str, Any]:
             "score": min(lh["score"], rh["score"]),
         }
 
-    return {"backend": "mediapipe", "width": width, "height": height, "people": [{"keypoints": keypoints}], "bones": BONES}
+    person: dict[str, Any] = {"keypoints": keypoints}
+    person["mediapipeLandmarks"] = _landmarks_to_json(result.pose_landmarks.landmark)
+    if result.pose_world_landmarks:
+        person["mediapipeWorldLandmarks"] = _landmarks_to_json(result.pose_world_landmarks.landmark)
+
+    return {"backend": "mediapipe", "width": width, "height": height, "people": [person], "bones": BONES}
 
 
 def _parse_openpose_json(json_path: Path, width: int, height: int) -> dict[str, Any]:
