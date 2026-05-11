@@ -13,8 +13,13 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    env_file:
+      - .env
     environment:
       EXPO_PUBLIC_POSE_API_URL: ${EXPO_PUBLIC_POSE_API_URL:-http://localhost:8000}
+      EXPO_PUBLIC_AVATAR_MODE: ${EXPO_PUBLIC_AVATAR_MODE:-none}
+      EXPO_PUBLIC_VRM_URL: ${EXPO_PUBLIC_VRM_URL:-/models/avatar.vrm}
+      EXPO_PUBLIC_MMD_URL: ${EXPO_PUBLIC_MMD_URL:-/models/model.pmx}
       CI: "1"
       EXPO_NO_TELEMETRY: "1"
     ports:
