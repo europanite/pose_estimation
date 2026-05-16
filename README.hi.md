@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "🇺🇸 English"
-permalink: /
-lang: en
+title: "🇮🇳 हिन्दी"
+permalink: /hi/
+lang: hi
 ---
 
 # [pose_estimation](https://github.com/europanite/pose_estimation "pose_estimation")
@@ -19,41 +19,41 @@ pose estimation.
 
 !["web_ui"](./assets/images/web_ui.png)
 
-## Start the project
+## प्रोजेक्ट शुरू करें
 
 ```bash
 cp .env.example .env
 docker compose up --build
 ```
 
-Open the browser:
+ब्राउज़र खोलें:
 
 ```text
 http://localhost:8081
 ```
 
-Check the API:
+API जाँचें:
 
 ```bash
 curl http://localhost:8000/api/v1/health
 ```
 
-## How to use
+## उपयोग कैसे करें
 
-1. Press "Select image".
-2. Select an image.
-3. Check the 2D keypoints overlaid on the image.
-4. Check the pose direction in the lower "3D skeleton check" view.
+1. "Select image" दबाएँ।
+2. एक image चुनें।
+3. image पर overlay किए गए 2D keypoints जाँचें।
+4. नीचे दिए गए "3D skeleton check" view में pose direction जाँचें।
 
 ## Tests
 
-Run the backend tests:
+backend tests चलाएँ:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm backend_test
 ```
 
-Run the frontend smoke test:
+frontend smoke test चलाएँ:
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm frontend_test

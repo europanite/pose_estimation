@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "🇺🇸 English"
-permalink: /
-lang: en
+title: "🇰🇷 한국어"
+permalink: /ko/
+lang: ko
 ---
 
 # [pose_estimation](https://github.com/europanite/pose_estimation "pose_estimation")
@@ -15,45 +15,45 @@ lang: en
 [![CI](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml)
 
-pose estimation.
+포즈 추정.
 
 !["web_ui"](./assets/images/web_ui.png)
 
-## Start the project
+## 프로젝트 시작하기
 
 ```bash
 cp .env.example .env
 docker compose up --build
 ```
 
-Open the browser:
+브라우저 열기:
 
 ```text
 http://localhost:8081
 ```
 
-Check the API:
+API 확인:
 
 ```bash
 curl http://localhost:8000/api/v1/health
 ```
 
-## How to use
+## 사용 방법
 
-1. Press "Select image".
-2. Select an image.
-3. Check the 2D keypoints overlaid on the image.
-4. Check the pose direction in the lower "3D skeleton check" view.
+1. "Select image"를 누릅니다.
+2. 이미지를 선택합니다.
+3. 이미지 위에 오버레이된 2D keypoints를 확인합니다.
+4. 아래쪽 "3D skeleton check" view에서 pose direction을 확인합니다.
 
-## Tests
+## 테스트
 
-Run the backend tests:
+backend tests 실행:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm backend_test
 ```
 
-Run the frontend smoke test:
+frontend smoke test 실행:
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm frontend_test

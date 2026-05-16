@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "🇺🇸 English"
-permalink: /
-lang: en
+title: "🇧🇷 PT-BR"
+permalink: /pt-BR/
+lang: pt-BR
 ---
 
 # [pose_estimation](https://github.com/europanite/pose_estimation "pose_estimation")
@@ -15,45 +15,45 @@ lang: en
 [![CI](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml)
 
-pose estimation.
+Estimativa de pose.
 
 !["web_ui"](./assets/images/web_ui.png)
 
-## Start the project
+## Iniciar o projeto
 
 ```bash
 cp .env.example .env
 docker compose up --build
 ```
 
-Open the browser:
+Abra o navegador:
 
 ```text
 http://localhost:8081
 ```
 
-Check the API:
+Verifique a API:
 
 ```bash
 curl http://localhost:8000/api/v1/health
 ```
 
-## How to use
+## Como usar
 
-1. Press "Select image".
-2. Select an image.
-3. Check the 2D keypoints overlaid on the image.
-4. Check the pose direction in the lower "3D skeleton check" view.
+1. Pressione "Select image".
+2. Selecione uma imagem.
+3. Verifique os 2D keypoints sobrepostos na imagem.
+4. Verifique a pose direction na visualização inferior "3D skeleton check".
 
-## Tests
+## Testes
 
-Run the backend tests:
+Execute os backend tests:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm backend_test
 ```
 
-Run the frontend smoke test:
+Execute o frontend smoke test:
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm frontend_test
