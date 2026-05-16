@@ -15,6 +15,18 @@ lang: pt-BR
 [![CI](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml)
 
+<p align="right">
+  <a href="https://europanite.github.io/pose_estimation/">🇺🇸 English</a> |
+  <a href="https://europanite.github.io/pose_estimation/hi/">🇮🇳 हिंदी</a> |
+  <a href="https://europanite.github.io/pose_estimation/ja/">🇯🇵 日本語</a> |
+  <a href="https://europanite.github.io/pose_estimation/zh-CN/">🇨🇳 简体中文</a> |
+  <a href="https://europanite.github.io/pose_estimation/es/">🇪🇸 Español</a> |
+  <a href="https://europanite.github.io/pose_estimation/pt-BR/">🇧🇷 Português (Brasil)</a> |
+  <a href="https://europanite.github.io/pose_estimation/ko/">🇰🇷 한국어</a> |
+  <a href="https://europanite.github.io/pose_estimation/de/">🇩🇪 Deutsch</a> |
+  <a href="https://europanite.github.io/pose_estimation/fr/">🇫🇷 Français</a>
+</p>
+
 Estimativa de pose.
 
 !["web_ui"](./assets/images/web_ui.png)
