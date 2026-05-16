@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "🇺🇸 English"
-permalink: /
-lang: en
+title: "🇯🇵 日本語"
+permalink: /ja/
+lang: ja
 ---
 
 # [pose_estimation](https://github.com/europanite/pose_estimation "pose_estimation")
@@ -15,45 +15,45 @@ lang: en
 [![CI](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/pose_estimation/actions/workflows/lint.yml)
 
-pose estimation.
+姿勢推定。
 
 !["web_ui"](./assets/images/web_ui.png)
 
-## Start the project
+## プロジェクトを開始する
 
 ```bash
 cp .env.example .env
 docker compose up --build
 ```
 
-Open the browser:
+ブラウザーを開く:
 
 ```text
 http://localhost:8081
 ```
 
-Check the API:
+API を確認する:
 
 ```bash
 curl http://localhost:8000/api/v1/health
 ```
 
-## How to use
+## 使い方
 
-1. Press "Select image".
-2. Select an image.
-3. Check the 2D keypoints overlaid on the image.
-4. Check the pose direction in the lower "3D skeleton check" view.
+1. "Select image" を押す。
+2. 画像を選択する。
+3. 画像上に重ねて表示された 2D keypoints を確認する。
+4. 下部の "3D skeleton check" ビューで pose direction を確認する。
 
-## Tests
+## テスト
 
-Run the backend tests:
+backend tests を実行する:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm backend_test
 ```
 
-Run the frontend smoke test:
+frontend smoke test を実行する:
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm frontend_test
