@@ -3,7 +3,7 @@ services:
     image: local/backend-test:ci
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.test
     working_dir: /app
     volumes:
       - ./backend:/app
@@ -22,7 +22,7 @@ services:
     image: local/frontend-test:ci
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.test
     working_dir: /app
     environment:
       CI: "1"
