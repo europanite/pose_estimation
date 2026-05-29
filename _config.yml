@@ -1,5 +1,5 @@
 title: "pose_estimation"
-description: "pose_estimation"
+description: "A container for pose estimation from 2D images."
 baseurl: "/pose_estimation"
 url: "https://europanite.github.io"
 theme: minima
