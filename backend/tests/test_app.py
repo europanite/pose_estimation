@@ -4,6 +4,10 @@ import io
 import json
 
 import pytest
+from fastapi import HTTPException
+from fastapi.testclient import TestClient
+from starlette.datastructures import UploadFile
+
 from app import (
     BODY25_TO_MEDIAPIPE,
     _estimate_pose,
@@ -11,9 +15,6 @@ from app import (
     _read_image,
 )
 from app import app as fastapi_app
-from fastapi import HTTPException
-from fastapi.testclient import TestClient
-from starlette.datastructures import UploadFile
 
 client = TestClient(fastapi_app)
 
