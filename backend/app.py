@@ -10,7 +10,7 @@ from typing import Any
 import cv2
 import mediapipe as mp
 import numpy as np
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 
@@ -220,10 +220,11 @@ def _estimate_pose(file: UploadFile) -> dict[str, Any]:
 
 
 @app.post("/api/v1/pose")
-def pose(file: UploadFile = File(...)) -> dict[str, Any]:
+def pose(file: UploadFile) -> dict[str, Any]:
     return _estimate_pose(file)
 
 
+
 @app.post("/backend/pose", include_in_schema=False)
-def legacy_pose(file: UploadFile = File(...)) -> dict[str, Any]:
+def legacy_pose(file: UploadFile) -> dict[str, Any]:
     return _estimate_pose(file)

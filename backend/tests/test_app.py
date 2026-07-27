@@ -13,9 +13,8 @@ from app import (
     _estimate_pose,
     _parse_openpose_json,
     _read_image,
-    app as fastapi_app,
 )
-
+from app import app as fastapi_app
 
 client = TestClient(fastapi_app)
 
